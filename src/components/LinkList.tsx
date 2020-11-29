@@ -110,14 +110,16 @@ class LinkList extends Component<History, LinkInterface> {
 
           return (
             <Fragment>
-              {linksToRender.map((link: any, index: any) => (
-                <Link
-                  key={link.id}
-                  link={link}
-                  index={index + pageIndex}
-                  updateStoreAfterVote={this._updateCacheAfterVote}
-                />
-              ))}
+              {linksToRender
+                ? linksToRender.map((link: any, index: any) => (
+                    <Link
+                      key={link.id}
+                      link={link}
+                      index={index + pageIndex}
+                      updateStoreAfterVote={this._updateCacheAfterVote}
+                    />
+                  ))
+                : `Sorry, can't find any`}
               {isNewPage && (
                 <div className="flex ml4 mv3 gray">
                   <div className="pointer mr2" onClick={this._previousPage}>
