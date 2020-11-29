@@ -17,7 +17,7 @@ const resolvers = {
 };
 
 const server = new GraphQLServer({
-  typeDefs: "./src/schema.graphql",
+  typeDefs: "server/src/schema.graphql",
   resolvers,
   context: (request) => ({
     ...request,
@@ -25,3 +25,26 @@ const server = new GraphQLServer({
   }),
 });
 server.start(() => console.log(`Server is running on http://localhost:4000`));
+
+/*
+{
+  "name": "hackernews-node",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "npm-run-all --parallel start playground",
+    "prisma": "prisma"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "graphql-yoga": "^1.7.0",
+    "jsonwebtoken": "^8.2.0",
+    "prisma-client-lib": "^1.31.0"
+  },
+  "devDependencies": {
+    "prisma": "^1.31.0"
+  }
+}
+
+ */
